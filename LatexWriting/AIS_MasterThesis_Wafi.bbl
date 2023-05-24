@@ -1,0 +1,33 @@
+\begin{thebibliography}{1}
+
+\bibitem{Abebe.2020}
+Misganaw Abebe, Yongwoo Shin, Yoojeong Noh, Sangbong Lee, and Inwon Lee.
+\newblock Machine learning approaches for ship speed prediction towards energy
+  efficient shipping.
+\newblock {\em Applied Sciences}, 10(7):2325, 2020.
+
+\bibitem{Gkerekos.2019}
+Christos Gkerekos, Iraklis Lazakis, and Gerasimos Theotokatos.
+\newblock Machine learning models for predicting ship main engine fuel oil
+  consumption: A comparative study.
+\newblock {\em Ocean Engineering}, 188:106282, 2019.
+
+\bibitem{BalBesikci.2016}
+E.~{Bal Be{\c{s}}ik{\c{c}}i}, O.~Arslan, O.~Turan, and A.~I. {\"O}l{\c{c}}er.
+\newblock An artificial neural network based decision support system for energy
+  efficient ship operations.
+\newblock {\em Computers {\&} Operations Research}, 66:393--401, 2016.
+
+\bibitem{Yang.2020}
+Liqian Yang, Gang Chen, Jinlou Zhao, and Niels Gorm~Mal{\'y} Rytter.
+\newblock Ship speed optimization considering ocean currents to enhance
+  environmental sustainability in maritime shipping.
+\newblock {\em Sustainability}, 12(9):3649, 2020.
+
+\bibitem{Zhou.2020}
+Yang Zhou, Winnie Daamen, Tiedo Vellinga, and Serge~P. Hoogendoorn.
+\newblock Impacts of wind and current on ship behavior in ports and waterways:
+  A quantitative analysis based on ais data.
+\newblock {\em Ocean Engineering}, 213:107774, 2020.
+
+\end{thebibliography}

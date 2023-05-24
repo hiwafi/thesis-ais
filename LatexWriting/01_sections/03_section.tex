@@ -1,0 +1,83 @@
+\section{Research Methodology} \label{method}
+
+In this chapter the methodology used to develop the model will be discussed. 
+The discussion on different parameters in the vessel's journey data will be discussed here. 
+This includes the mining and merging of the features. The method used to develop the ship's speed model will be discussed in this chapter. 
+This consists of the parameter used to develop the model. Ultimately, the model is then used to predict the ship's fuel consumption.
+
+\subsection{Data Preprocessing}
+
+\begin{itemize}
+    \item Two data sources are imported. {\tt AIS\_weather\_H\_ok2\_copy.csv} \\ and {\tt AIS\_weather\_h\_rename\_copy.csv}. The information from the latter comma delimited 
+    file will be used for calculating the ship Speed Through Water (STW).  
+    The information required is the true north current direction. Which is obtained from the vector component of the Northward and Southward current.
+    \item This dataframe will be merged with the main dataframe from \\ the file {\tt AIS\_weather\_H\_ok2\_copy.csv}.
+    \item Omission of the journey data between Ronne and Sassnitz
+    \item SOG threshold is applied to omit ship mooring and maneuvering to accurately represent the ship's steady state operation 
+    \cite{Abebe.2020,BalBesikci.2016,Gkerekos.2019,Yang.2020}. This threshold is selected as 5 knots according to \cite{Abebe.2020}
+    \item The AIS data from June is filtered. This data will be used as validation data to check the model's performance.
+\end{itemize}
+ 
+\subsection{Data Analysis}
+\begin{itemize}
+    \item The features are represented in a histogram plot. For the feature Current speed, anomaly is detected. Certain spike is detected around \numrange[range-phrase = --]{0.01}{0.03} \verb|m/s|. Reasons unknown. The data is retained, including the spike, until a definitive answer can be found.
+    \item OPEN QUESTION : What is the necessity of feature standardization / normalization ? Normalization is required for ANN as model training requires the value between 0 and 1. But in case of RFR, there is no such requirement. Through testing, data standardization also does not seem to improve the model's performance. 
+\end{itemize}
+
+\begin{sidewaysfigure}
+    \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{02_figures/outputhist.png}
+    \caption{Histogram of the features}
+    \label{sidewaysfig:hist1}
+\end{sidewaysfigure}
+
+\newpage
+
+\begin{itemize}
+    \item The correlation of the features against SOG are determined. It is found that :
+    \begin{itemize}
+        \item Draught
+        \item Course Over Ground (COG)
+        \item heading
+        \item Wind Speed
+        \item Current Speed
+        \item True Current direction
+    \end{itemize}
+    Have relatively stronger correlation to SOG comapred to other features, albeit the correlation is a weak one
+    \item The correlation between the features is displayed using the following the heat map. From the heat map it can be observed that between these features:
+    \begin{itemize}
+        \item Waveheight and wind wave swell height
+        \item Waveheight and wind wave height
+        \item Windwaveswellheight and wave period
+    \end{itemize}
+    Have a strong correlation between each other.  
+    \item Open topic: 
+    \begin{itemize}
+        \item Feature reduction is possible, \cite{Abebe.2020} suggested high feature correlation filter, the filter suggest that two features which has a high correlation $(>90\%)$ is to be combined into a single feature. But the author is unsure whether this combination is physically sensible. Hence, this filter is yet to be applied for feature reduction. 
+        \item Some of these features can be connected through wave equations, but the author has not found an equation which could relate these features.
+    \end{itemize}
+    \item The random forest regressor could not function when \verb|NaN| values are present. With that, the missing values are filled in using the {\tt imputer} function. The missing values are filled in by means of \verb|KNN|.
+\end{itemize}
+
+\newpage
+
+\begin{figure}
+    \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{02_figures/heatmap_corr.png}
+    \caption{Correlation Heat Map}
+    \label{fig:heatmap1}
+\end{figure}
+
+\subsection{Modelling}
+
+\begin{itemize}
+    \item The data is split into 80:20 ratio. But considering the validation data, it is split into approximately 73:18:9.
+    \item The model is then trained using Random Forest Regression (RFR). Additional training is also performed using Decision Tree Regressor (DTR). DTR model performance will be used as a benchmark as it is also a tree-based modelling method with similar methodology to RFR.
+    \item The computational time of DTR is significantly faster than RFR
+    Model Evaluation    
+\end{itemize}
+
+\subsection{Modelling Ship's Speed Through Water STW}
+
+\begin{itemize}
+    \item The ship STW can be calculated using vector component of the SOG and current speed. The direction used will be according to True North. \cite{Yang.2020,Zhou.2020}
+    \item 
+\end{itemize}
