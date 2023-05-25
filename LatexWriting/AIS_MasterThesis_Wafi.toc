@@ -1,14 +1,14 @@
-\contentsline {section}{\numberline {1}Introduction}{3}{section.2}%
-\contentsline {section}{\numberline {2}Theoretical Background}{4}{section.3}%
-\contentsline {subsection}{\numberline {2.1}Random Forest Regression (RFR)}{4}{subsection.4}%
-\contentsline {subsection}{\numberline {2.2}Ship speed}{4}{subsection.5}%
-\contentsline {subsection}{\numberline {2.3}Modelling}{4}{subsection.6}%
-\contentsline {section}{\numberline {3}Research Methodology}{5}{section.7}%
-\contentsline {subsection}{\numberline {3.1}Data Preprocessing}{5}{subsection.8}%
-\contentsline {subsection}{\numberline {3.2}Data Analysis}{5}{subsection.9}%
-\contentsline {subsection}{\numberline {3.3}Modelling}{8}{subsection.12}%
-\contentsline {subsection}{\numberline {3.4}Predicting Ship's Speed Through Water (STW)}{8}{subsection.13}%
-\contentsline {section}{\numberline {4}Result and Discussion}{10}{section.36}%
-\contentsline {subsection}{\numberline {4.1}Model Evaluation}{10}{subsection.37}%
-\contentsline {section}{\numberline {5}Summary and Outlook}{12}{section.57}%
-\contentsline {section}{References}{13}{section.57}%
+\contentsline {section}{\numberline {1}Introduction}{5}{section.4}%
+\contentsline {section}{\numberline {2}Theoretical Background}{6}{section.5}%
+\contentsline {subsection}{\numberline {2.1}Random Forest Regression (RFR)}{6}{subsection.6}%
+\contentsline {subsection}{\numberline {2.2}Ship speed}{6}{subsection.7}%
+\contentsline {subsection}{\numberline {2.3}Modelling}{6}{subsection.8}%
+\contentsline {section}{\numberline {3}Research Methodology}{7}{section.9}%
+\contentsline {subsection}{\numberline {3.1}Data Preprocessing}{7}{subsection.10}%
+\contentsline {subsection}{\numberline {3.2}Data Analysis}{7}{subsection.11}%
+\contentsline {subsection}{\numberline {3.3}Modelling}{10}{subsection.14}%
+\contentsline {subsection}{\numberline {3.4}Predicting STW}{10}{subsection.15}%
+\contentsline {section}{\numberline {4}Result and Discussion}{13}{section.53}%
+\contentsline {subsection}{\numberline {4.1}Model Evaluation}{13}{subsection.54}%
+\contentsline {section}{\numberline {5}Summary and Outlook}{15}{section.57}%
+\contentsline {section}{References}{16}{section.57}%

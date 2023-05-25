@@ -75,10 +75,9 @@ This consists of the parameter used to develop the model. Ultimately, the model 
     Model Evaluation    
 \end{itemize}
 
-\subsection{Predicting Ship's Speed Through Water (STW)}
-
+\subsection{Predicting STW}
 \begin{itemize}
-    \item The ship's STW can be calculated using vector component of the SOG and current speed. The direction used will be according to True North. \cite{Yang.2020,Zhou.2020}
+    \item The ship's Speed Through Water STW can be calculated using vector component of the SOG and current speed. The direction used will be according to True North. \cite{Yang.2020,Zhou.2020}
     \item SOG represents the speed of the ship with reference to the ground, while the STW represent the ship's speed with reference to water.
     \item SOG also can be termed by the ship's speed that is captured by the GPS, and does not consider any effect of the current
     \item This means that the ship's STW will be greater than the ship's SOG when there is current moving against the ship's movement direction and vice versa 
@@ -110,22 +109,46 @@ This consists of the parameter used to develop the model. Ultimately, the model 
             V_w = \sqrt{(V_{w}^x)^2 + (V_{w}^y)^2} 
         \end{equation}
     \end{itemize}
-    \item This principle is applied to the following Python script.
-    % \begin{lstlisting}[language = Python, caption=Model Evaluation]
+    \newpage
+
+    \item This principle is applied to the following Python script. \ref{eqvcx}
+
 \begin{python}
-        import np
+       
+        # Convert SOG from [Knots] to [m/s]
+    
         dfprog["vgms"] = dfprog["sog_pred"]/1.9438
-        # HELP !
-        dfprog["vgx"] = dfprog["vgms"] * np.sin(np.deg2rad(dfprog["cog"]))
-        dfprog["vcx"] = dfprog["curspeed"] * np.sin(np.deg2rad(dfprog["truenorthcurrentdir"]))
+        
+        # Convert the angles from [Degrees] to [Radians]
+
+        rad_gamma = np.deg2rad(dfprog["gamma"])
+        rad_cog = np.deg2rad(dfprog["cog"])
+
+        # Decomposition in x-component
+
+        dfprog["vgx"] = dfprog["vgms"] * np.sin(rad_cog)
+        dfprog["vcx"] = dfprog["curspeed"] * np.sin(rad_gamma)
         dfprog["stw_x"] = (dfprog["vgx"] - dfprog["vcx"])
-        
-        dfprog["vgy"] = dfprog["vgms"] * np.cos(np.deg2rad(dfprog["cog"]))
-        dfprog["vcy"] = dfprog["curspeed"] * np.cos(np.deg2rad(dfprog["truenorthcurrentdir"]))
+
+        # Decomposition in y-component
+
+        dfprog["vgy"] = dfprog["vgms"] * np.cos(rad_cog)
+        dfprog["vcy"] = dfprog["curspeed"] * np.cos(rad_gamma)
         dfprog["stw_y"] = (dfprog["vgy"] - dfprog["vcy"])
-        
+
+        # Vector synthesis and reconversion to [Knots] from [m/s]
+
         dfprog["vwms_p"] = np.sqrt(dfprog["stw_x"]**2 + dfprog["stw_y"]**2)
         dfprog["stw_pred"] = dfprog["vwms_p"]*1.9438  
-    # \end{lstlisting}
+
     \end{python}
+\newpage
+
+\begin{sidewaysfigure}
+    \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{02_figures/rfrftree.png}
+    \caption{Correlation Heat Map}
+    \label{fig:Random Forest Regression Tree}
+\end{sidewaysfigure}
+
+
 \end{itemize}

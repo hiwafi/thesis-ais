@@ -1,0 +1,17 @@
+<@@pygmented@display@0
+,lang=python
+        import np
+        dfprog["vgms"] = dfprog["sog_pred"]/1.9438
+        # HELP !
+        dfprog["vgx"] = dfprog["vgms"] * np.sin(np.deg2rad(dfprog["cog"]))
+        dfprog["vcx"] = dfprog["curspeed"] * np.sin(np.deg2rad(dfprog["truenorthcurrentdir"]))
+        dfprog["stw_x"] = (dfprog["vgx"] - dfprog["vcx"])
+
+        dfprog["vgy"] = dfprog["vgms"] * np.cos(np.deg2rad(dfprog["cog"]))
+        dfprog["vcy"] = dfprog["curspeed"] * np.cos(np.deg2rad(dfprog["truenorthcurrentdir"]))
+        dfprog["stw_y"] = (dfprog["vgy"] - dfprog["vcy"])
+
+        dfprog["vwms_p"] = np.sqrt(dfprog["stw_x"]**2 + dfprog["stw_y"]**2)
+        dfprog["stw_pred"] = dfprog["vwms_p"]*1.9438
+    # \end{lstlisting}
+>@@pygmented@display@0

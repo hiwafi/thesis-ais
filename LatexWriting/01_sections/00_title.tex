@@ -1,44 +1,99 @@
-\thispagestyle{empty}
+% \thispagestyle{empty}
 
-\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+% \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
 
-% Logo
-\includegraphics[width=\columnwidth]{02_figures/logo_en.jpg}
-\vspace{1cm}
+% % Logo
+% \includegraphics[width=\columnwidth]{02_figures/logo_en.jpg}
+% \vspace{1cm}
 
-\begin{center} % Center remainder of the page
+% \begin{center} % Center remainder of the page
 
-% Heading section
-\textsc{\LARGE University of Duisburg-Essen}\\[1cm] 
-\textsc{\Large Chair of Transport Systems and Logistics}\\[1cm]
-%\textsc{\large Advanced Laboratory}\\[1cm]
+% % Heading section
+% \textsc{\LARGE University of Duisburg-Essen}\\[1cm] 
+% \textsc{\Large Chair of Transport Systems and Logistics}\\[1cm]
+% %\textsc{\large Advanced Laboratory}\\[1cm]
 
-% Title
-\HRule \\[0.4cm]
-{\Huge \bfseries Modelling and optimization of ship’s fuel consumption using Random Forest Regression (RFR) }\\[0.5cm] % Title of your document
-{\Large Modellierung und Optimierung des Treibstoffverbrauchs von Schiffen mittels Random Forest Regression (RFR)}
-\HRule \\[2cm]
+% % Title
+% \HRule \\[0.4cm]
+% {\Huge \bfseries Modelling and optimization of ship’s fuel consumption using Random Forest Regression (RFR) }\\[0.5cm] % Title of your document
+% {\Large Modellierung und Optimierung des Treibstoffverbrauchs von Schiffen mittels Random Forest Regression (RFR)}
+% \HRule \\[2cm]
 
-% Author
+% % Author
 
-\begin{minipage}{0.4\textwidth}
-\begin{flushleft} \large
-	\emph{Author:}\\
-	Hibatul Wafi\\
-    3021919\\
-%    \textbf{Group \#}
-	\end{flushleft}
-	\end{minipage}
-~
-\begin{minipage}{0.4\textwidth}
-\begin{flushright} \large
-	\emph{Supervisor:} \\
-	M. T. Muhammad Fakhruriza Pradana
-\end{flushright}
-\end{minipage}\\
-\vspace{1cm}
-\makeatletter
-\vspace{1cm}
-{\large Summer semester 2023} \\
-{\large \@date}
-\end{center}
+% \begin{minipage}{0.4\textwidth}
+% \begin{flushleft} \large
+% 	\emph{Author:}\\
+% 	Hibatul Wafi\\
+%     3021919\\
+% %    \textbf{Group \#}
+% 	\end{flushleft}
+% 	\end{minipage}
+% ~
+% \begin{minipage}{0.4\textwidth}
+% \begin{flushright} \large
+% 	\emph{Supervisor:} \\
+% 	M. T. Muhammad Fakhruriza Pradana
+% \end{flushright}
+% \end{minipage}\\
+% \vspace{1cm}
+% \makeatletter
+% \vspace{1cm}
+% {\large Summer semester 2023} \\
+% {\large \@date}
+% \end{center}
+
+\def\whatIsIt{Master Thesis}
+\def\title{Modelling and optimization of ship's fuel consumption using Random Forest Regression (RFR)}
+\def\fakultaet{Faculty of Engineering}
+
+\def\author{Hibatul Wafi}
+% \def\addrLineEins{Muster Straße 1}
+% \def\addrLineZwei{PLZ, Ort}
+\def\matrikelNr{3021919}
+
+\def\location{Duisburg}
+\def\date{04.05.2023}
+
+\def\betreuer{M. T. Muhammad Fakhruriza Pradana}
+\def\ersterGutachter{Prof. Dr.-Ing. B. Noche}
+\def\zweiterGutachter{Prof. Dr. Ucker}
+\def\fach{ISE General Mechanical Engineering}
+\def\semester{Summer semester 2023}
+
+\begin{titlepage}
+	\vspace*{-6em}
+	\hspace{-3.5em}
+	\includegraphics[scale=0.2]{02_figures/ude.jpg}
+	\vspace*{\fill}
+			
+	\begin{center}
+		{\Large\bfseries \whatIsIt}\\
+		\vspace*{\fill}
+		on the topic of\\
+		\vspace*{\fill}
+		{\huge\bfseries \title} \\
+		\vspace*{\fill}
+		Submitted to the \fakultaet\\
+		of University Duisburg Essen\\
+		\vspace*{\fill}
+		by\\
+		\vspace*{\fill}
+		{\large\bfseries\author} \\
+		% \addrLineEins\\
+		% \addrLineZwei\\
+		{\large\bfseries\matrikelNr} \\
+	\end{center}
+	
+	\vspace*{\fill}
+	
+	\begin{tabular}{ll}
+		Betreuer: & \betreuer\\
+		1. Gutachter: & \ersterGutachter\\
+		2. Gutachter: & \zweiterGutachter\\
+		Studiengang: & \fach \\
+		Studiensemester: & \semester \\
+		Datum: & \date
+	\end{tabular}
+	
+\end{titlepage}
