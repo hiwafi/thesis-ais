@@ -42,7 +42,7 @@ This consists of the parameter used to develop the model. Ultimately, the model 
         \item Current Speed
         \item True Current direction
     \end{itemize}
-    Have relatively stronger correlation to SOG comapred to other features, albeit the correlation is a weak one
+    Have relatively stronger correlation to SOG compared to other features, albeit the correlation is a weak one
     \item The correlation between the features is displayed using the following the heat map. From the heat map it can be observed that between these features:
     \begin{itemize}
         \item Waveheight and wind wave swell height
@@ -75,9 +75,57 @@ This consists of the parameter used to develop the model. Ultimately, the model 
     Model Evaluation    
 \end{itemize}
 
-\subsection{Predicting Ship's Speed Through Water STW}
+\subsection{Predicting Ship's Speed Through Water (STW)}
 
 \begin{itemize}
-    \item The ship STW can be calculated using vector component of the SOG and current speed. The direction used will be according to True North. \cite{Yang.2020,Zhou.2020}
-    \item 
+    \item The ship's STW can be calculated using vector component of the SOG and current speed. The direction used will be according to True North. \cite{Yang.2020,Zhou.2020}
+    \item SOG represents the speed of the ship with reference to the ground, while the STW represent the ship's speed with reference to water.
+    \item SOG also can be termed by the ship's speed that is captured by the GPS, and does not consider any effect of the current
+    \item This means that the ship's STW will be greater than the ship's SOG when there is current moving against the ship's movement direction and vice versa 
+    \item The vector decomposition can be defined from the following equations, which is based on the equation by \cite{Yang.2020}:
+    \begin{itemize}
+        \item The ship's SOG $V_g$ can be decomposed into $V_{g}^x$ and $V_{g}^y$, which represents the $x$ and $y$ components of the SOG respectively using the ship's course heading (COG) $\beta$ \emph{with respect to True North}:
+        \begin{equation}\label{eqvgx}
+            V_{g}^x = V_g\sin(\beta)   
+        \end{equation}
+        \begin{equation}\label{eqvgy}
+            V_{g}^y = V_g\cos(\beta)   
+        \end{equation}
+        \item To consider the effect of sea current. The current speed $V_c$ will also be decomposed to $x$ and $y$ components respectively using the current direction $\gamma$ \emph{with respect to True North}:
+        \begin{equation}\label{eqvcx}
+            V_{c}^x = V_g\sin(\gamma)   
+        \end{equation}
+        \begin{equation}\label{eqvcy}
+            V_{c}^y = V_g\cos(\gamma)   
+        \end{equation}
+        \item from here the ship' STW $V_{wx}$ and $V_{wy}$ component can be found from the following equation: 
+        \begin{equation}
+            V_{w}^x = V_{g}^x - V_{c}^x    
+        \end{equation}
+        \begin{equation}
+            V_{w}^y = V_{g}^y - V_{c}^y 
+        \end{equation}
+        \item The magnitude of the STW can be readily obtained from the following vector synthesis
+        \begin{equation}
+            V_w = \sqrt{(V_{w}^x)^2 + (V_{w}^y)^2} 
+        \end{equation}
+    \end{itemize}
+    \item This principle is applied to the following Python script.
+    % \begin{lstlisting}[language = Python, caption=Model Evaluation]
+\begin{python}
+        import np
+        dfprog["vgms"] = dfprog["sog_pred"]/1.9438
+        # HELP !
+        dfprog["vgx"] = dfprog["vgms"] * np.sin(np.deg2rad(dfprog["cog"]))
+        dfprog["vcx"] = dfprog["curspeed"] * np.sin(np.deg2rad(dfprog["truenorthcurrentdir"]))
+        dfprog["stw_x"] = (dfprog["vgx"] - dfprog["vcx"])
+        
+        dfprog["vgy"] = dfprog["vgms"] * np.cos(np.deg2rad(dfprog["cog"]))
+        dfprog["vcy"] = dfprog["curspeed"] * np.cos(np.deg2rad(dfprog["truenorthcurrentdir"]))
+        dfprog["stw_y"] = (dfprog["vgy"] - dfprog["vcy"])
+        
+        dfprog["vwms_p"] = np.sqrt(dfprog["stw_x"]**2 + dfprog["stw_y"]**2)
+        dfprog["stw_pred"] = dfprog["vwms_p"]*1.9438  
+    # \end{lstlisting}
+    \end{python}
 \end{itemize}
