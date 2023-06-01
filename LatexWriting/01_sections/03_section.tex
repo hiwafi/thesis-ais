@@ -20,7 +20,7 @@ This consists of the parameter used to develop the model. Ultimately, the model 
  
 \subsection{Data Analysis}
 \begin{itemize}
-    \item The features are represented in a histogram plot. For the feature Current speed, anomaly is detected. Certain spike is detected around \numrange[range-phrase = --]{0.01}{0.03} \verb|m/s|. Reasons unknown. The data is retained, including the spike, until a definitive answer can be found.
+    \item The features are represented in a histogram plot. For the feature Current speed, anomaly is detected. Certain spike is detected around $0.01 - 0.03$ \verb|m/s|. Reasons unknown. The data is retained, including the spike, until a definitive answer can be found.
     \item OPEN QUESTION : What is the necessity of feature standardization / normalization ? Normalization is required for ANN as model training requires the value between 0 and 1. But in case of RFR, there is no such requirement. Through testing, data standardization also does not seem to improve the model's performance. 
 \end{itemize}
 
