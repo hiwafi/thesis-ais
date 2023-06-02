@@ -1,0 +1,70 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[linguistics]{forest}
+\begin{document}
+\begin{forest}
+  [IP
+    [NP
+     [Det
+       [\textit{the}]
+     ]
+     [N$'$
+       [N
+         [\textit{package}]
+       ]
+     ]
+    ]
+    [I$'$
+      [I
+        [\textsc{3sg.Pres}
+        ]
+      ]
+      [VP
+        [V$'$
+          [V
+            [\textit{is}]
+          ]
+          [AP
+            [Deg
+              [\textit{extremely}]
+            ]
+            [A$'$
+              [A
+                [\textit{straightforward}]
+              ]
+              [CP
+                [\textit{to wield}, roof]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{forest}
+\end{document}
+
+        % {\begin{tikzpicture}
+        % \node [box]                                    (root)      {$X_1 \leq  t_1$};
+        % % Left Tree
+        % \node [box, below=0.5cm of root, xshift=-3cm]  (lcond1)    {$X_2 \leq t_2$};
+        % \node [box, below=0.5cm of lcond1, xshift=-2cm]  (r1)    {$R_1$};
+        % \node [box, below=0.5cm of lcond1, xshift=2cm]   (r2)    {$R_2$};
+
+        % % Right Tree
+        % \node [box, below=0.5cm of root, xshift=3cm]   (rcond1)    {$X_1 \leq t_3$};
+        % \node [box, below=0.5cm of rcond1, xshift=2cm] (rcond2)    {$X_2 \leq t_4$};
+        % \node [box, below=0.5cm of rcond2, xshift=-2cm]  (r4)      {$R_4$};
+        % \node [box, below=0.5cm of rcond2, xshift=2cm]   (r5)      {$R_5$};
+        % \node [box, below=0.5cm of rcond1, xshift=-2cm]  (r3)      {$R_3$};
+        % %
+        % \path [line] (root) -|         (rcond1);
+        % \path [line] (root) -|         (lcond1);
+        % \path [line] (rcond1) -|       (rcond2);
+        % \path [line] (rcond1) -|       (r3);
+        % \path [line] (rcond2) -|       (r4);
+        % \path [line] (rcond2) -|       (r5);
+        % \path [line] (lcond1) -|       (r1);
+        % \path [line] (lcond1) -|       (r2);
+        % % \path [line] (r1) -|       (A1sx);
+        % % \path [line] (r1) -|       (A2sx);
+        % \end{tikzpicture}}
