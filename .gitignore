@@ -1,0 +1,72 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# From Ageron 
+
+*.bak
+*.bak.*
+*.ckpt
+*.old
+*.pyc
+.DS_Store
+.ipynb_checkpoints
+.vscode/
+checkpoint
+logs/*
+tf_logs/*
+images/**/*.png
+images/**/*.dot
+my_*
+person.proto
+person.desc
+person_pb2.py
+datasets/flowers
+datasets/lifesat/lifesat.csv
+datasets/spam
+datasets/words
+datasets/jsb_chorales
+
+# Ignore Sav Files 
+
+**.sav
+**.png
+*.perl
+# Ignore generated png images of tree from graphviz
+**/_tree*
+**/_dot_*
+**.dot
