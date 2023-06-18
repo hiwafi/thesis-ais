@@ -61,12 +61,12 @@ datasets/spam
 datasets/words
 datasets/jsb_chorales
 
-# Ignore Sav Files 
+# Ignore Sav Files, model can be large, and due to upload limitation of git and bandwith limitation of git-lfs. Its best to just ignore the sav file to be synced to git. 
 
 **.sav
 **.png
 *.perl
 # Ignore generated png images of tree from graphviz
-**/_tree*
-**/_dot_*
+**_tree*
+**_dot_*
 **.dot
