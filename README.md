@@ -1,3 +1,10 @@
+## Main script 
+
++ There are two script used in this thesis, the main script
+
+## Datasets
+
+
 ## Dependencies
 
 To set up your development environment and install the required packages, follow these steps:
@@ -12,5 +19,6 @@ To set up your development environment and install the required packages, follow
 > `conda install --file geron1.txt`
 + This will ensure you have the same packages and versions as used during development.
 
+The Python version used for this virtual environment is `Python 3.9.15`
 
 
